@@ -1,0 +1,50 @@
+#include <iostream>
+#include <conio.h>
+using namespace::std;
+
+int InNilai(string JENIS){
+    double NILAI;
+    cout<<" MASUKKAN NILAI "<<JENIS<<"         :"; cin>>NILAI;
+    return NILAI;
+}
+string InText(string nama){
+    string teks;
+    cout<<" MASUKKAN "<<nama<<"         :"; cin>>teks;
+    return teks;
+}
+double pangkatpos(int angka, int pangkat){
+    if (pangkat==0){return 1;}
+    else {return angka*pangkatpos(angka,pangkat-1);}
+}
+double pangkatneg(int angka, int pangkat){
+    if (pangkat==0){return 1;}
+    else {return angka*pangkatneg(angka,pangkat+1);}
+}
+void PILIHANOUT(int nilai1, int nilai2){
+if (nilai2>=0)
+    {cout<<endl<<" HASIL DARI "<<nilai1<<"^"<<nilai2<<" ADALAH :"<<pangkatpos(nilai1, nilai2);}
+else if (nilai2<0){cout<<endl<<" HASIL DARI "<<nilai1<<"^"<<nilai2<<" ADALAH :"<<1/pangkatneg(nilai1, nilai2);}
+}
+
+
+main(){
+int NILAI[2];
+
+cout<<endl<<" J E N I S   B I L A N G A N   P A N G K A T"<<endl;
+cout<<" -------------------------------------------"<<endl<<endl;
+cout<<"     1. Pangkat POSITIF(+)"<<endl;
+cout<<"     2. Pangkat NEGATIF(-)"<<endl<<endl;
+cout<<"     Penulisan Pangkat :"<<endl;
+cout<<"     Angka^Pangkat"<<endl<<endl;
+
+NILAI[0]=InNilai("ANGKA  ");
+NILAI[1]=InNilai("PANGKAT");
+
+
+PILIHANOUT(NILAI[0],NILAI[1]);
+
+
+
+cout<<endl<<endl<<endl;
+getch();
+}
